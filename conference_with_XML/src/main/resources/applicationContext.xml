@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 	
+   <bean name="speakerRepository" 
+   		class="com.pluralsight.rajat.conference_with_xml.repository.HibernateSpeakerRepositoryImpl" />
+   
+   <!-- For setter based XML -->
+   <!--  <bean name="speakerService" class="com.pluralsight.rajat.conference_with_xml.service.SpeakerServiceImpl" >
+   		<property name="Repository" ref="speakerRepository"></property>
+   </bean>
+   -->
+  <!-- For constructor based XML -->
+  <!--  <bean name="speakerService" class="com.pluralsight.rajat.conference_with_xml.service.SpeakerServiceImpl" >
+   		<constructor-arg index="0" ref="speakerRepository"/>
+   </bean>
+   -->
+   <!-- For constructor autowire based XML -->
+   	<!-- 	<bean name="speakerService" class="com.pluralsight.rajat.conference_with_xml.service.SpeakerServiceImpl" 
+   			autowire="constructor"/> -->
+   			
+   <!-- For type based autowire XML -->
+   	  <bean name="speakerService" class="com.pluralsight.rajat.conference_with_xml.service.SpeakerServiceImpl" 
+   			autowire="byType"/>
+   			
+   	<!-- For name based setter autowire XML -->
+   	<!--  <bean name="speakerService" class="com.pluralsight.rajat.conference_with_xml.service.SpeakerServiceImpl" 
+   			autowire="byName"/>-->  <!-- This will fail because we have setRepository instread of setSpeakerRepository, try 
+   			using byType setter methid -->
+   	 
+   	
+   		
+ </beans>
